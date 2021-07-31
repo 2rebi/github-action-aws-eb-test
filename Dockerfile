@@ -7,6 +7,6 @@ LABEL description="demo application"
 
 WORKDIR /app
 COPY  ./app.jar .
-EXPOSE 6666
+EXPOSE 3333
 
 CMD java -jar /app/app.jar
