@@ -39,9 +39,9 @@ jobs:
         # be deployed to ECS.
         export LOWERCASE=$ECR_REPOSITORY
         export LOWERCASE=${LOWERCASE#*/}
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        docker build -t $ECR_REGISTRY/${LOWERCASE}:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/${LOWERCASE}:$IMAGE_TAG
+        echo "::set-output name=image::$ECR_REGISTRY/${LOWERCASE}:$IMAGE_TAG"
         
     - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.4
